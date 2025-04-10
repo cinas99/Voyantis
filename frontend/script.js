@@ -1,44 +1,66 @@
-const API_BASE_URL = "http://localhost:5000/api";
-
-async function fetchQueues() {
-    try {
-        const response = await fetch(`${API_BASE_URL}/queues`);
-        const data = await response.json();
-
-        const container = document.getElementById('queues');
-        container.innerHTML = '';
-
-        Object.keys(data).forEach(queueName => {
-            const queueCard = document.createElement('div');
-            queueCard.className = 'queue-card';
-            queueCard.innerHTML = `
-                <h2>${queueName}</h2>
-                <p>Messages in queue: ${data[queueName]}</p>
-                <button onclick="fetchMessage('${queueName}')">Go</button>
-            `;
-            container.appendChild(queueCard);
-        });
-    } catch (error) {
-        console.error("Error fetching queues:", error);
-        alert("Failed to load queues.");
-    }
-}
-
-async function fetchMessage(queueName) {
-    try {
-        const response = await fetch(`${API_BASE_URL}/${queueName}?timeout=5000`);
-        if (response.status === 204) {
-            alert(`No messages available in ${queueName}.`);
-        } else if (response.ok) {
-            const message = await response.json();
-            alert(`Message from ${queueName}: ${JSON.stringify(message)}`);
-        } else {
-            alert(`Failed to retrieve message from ${queueName}.`);
+document.addEventListener('DOMContentLoaded', () => {
+    const queuesList = document.getElementById('queues-list');
+    const queueSelector = document.getElementById('queue-selector');
+    const fetchButton = document.getElementById('fetch-button');
+    const responseOutput = document.getElementById('response-output');
+  
+    async function loadQueues() {
+      try {
+        console.log('Fetching queues...');
+        const response = await fetch('http://127.0.0.1:5000/api/queues');
+        if (!response.ok) throw new Error(`Error: ${response.status}`);
+        const queues = await response.json();
+        console.log('Queues fetched:', queues);
+    
+        // Populate the queues list
+        queuesList.innerHTML = '';
+        queueSelector.innerHTML = '<option value="" disabled selected>Select a queue</option>';
+        
+        for (const [queueName, messageCount] of Object.entries(queues)) {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${queueName}: ${messageCount} messages`;
+          queuesList.appendChild(listItem);
+    
+          const option = document.createElement('option');
+          option.value = queueName;
+          option.textContent = queueName;
+          queueSelector.appendChild(option);
         }
-    } catch (error) {
-        console.error("Error fetching message:", error);
-        alert("Failed to retrieve message.");
+      } catch (error) {
+        console.error('Failed to load queues:', error);
+      }
     }
-}
-
-fetchQueues();
+  
+    async function fetchMessages() {
+      const selectedQueue = queueSelector.value;
+      if (!selectedQueue) {
+        alert('Please select a queue.');
+        return;
+      }
+    
+      try {
+        const apiUrl = `http://127.0.0.1:5000/api/${selectedQueue}`;
+        console.log(`Fetching messages from: ${apiUrl}`); // Debug log
+    
+        const response = await fetch(apiUrl);
+        if (response.status === 204) {
+          responseOutput.textContent = 'No messages available.';
+        } else if (!response.ok) {
+          throw new Error(`Error: ${response.status}`);
+        } else {
+          const message = await response.json();
+          responseOutput.textContent = JSON.stringify(message, null, 2);
+        }
+      } catch (error) {
+        console.error('Failed to fetch messages:', error);
+        responseOutput.textContent = 'Error fetching messages.';
+      }
+    }
+  
+    // Event listeners
+    fetchButton.addEventListener('click', fetchMessages);
+  
+    // Initial load of queues
+    loadQueues();
+  });
+  
