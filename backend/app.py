@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import time
 from collections import defaultdict
+import time
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:8000"}})
 
-# In-memory storage for queues
 queues = defaultdict(list)
 
 @app.route('/api/<queue_name>', methods=['POST'])
@@ -44,8 +43,16 @@ def get_message(queue_name):
         return jsonify({"error": "Invalid query parameter", "details": str(e)}), 400
 
 @app.route('/api/queues', methods=['GET'])
+
 def get_all_queues():
     return jsonify({queue: len(messages) for queue, messages in queues.items()}), 200
+
+@app.after_request
+def add_cors_headers(response):
+    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:8000')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
