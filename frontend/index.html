@@ -1,46 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Queue Manager</title>
-  <!-- Link to the CSS file -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href=
+    "https://cdn.prod.website-files.com/606bfdb804bc7a3e32538a79/css/voyantis-dev.webflow.736cccd00.min.css"
+    rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect"
+    crossorigin="anonymous">
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"
+    type="text/javascript"></script>
+    <script type="text/javascript">
+    WebFont.load({  google: {    families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic","Heebo:300,regular,500,600,700,800,900","DM Sans:300,regular,500,600,700,800,900","Poppins:100,200,300,regular,500,600,700,800,900"]  }});
+    </script>
+    <script type="text/javascript">
+    !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);
+    </script>
+    <link href=
+    "https://cdn.prod.website-files.com/606bfdb804bc7a3e32538a79/606d6966dbe8c0d2d1bdd406_favicon-32x32.png"
+    rel="shortcut icon" type="image/x-icon">
+    <link href=
+    "https://cdn.prod.website-files.com/606bfdb804bc7a3e32538a79/60883786f694de913a003d59_Webclip%201.png"
+    rel="apple-touch-icon">
+    <link href="https://www.voyantis.ai/" rel="canonical">
+    <script async src=
+    "https://www.googletagmanager.com/gtag/js?id=G-06TZHDDEQN"></script>
+    <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('set', 'developer_id.dZGVlNj', true);gtag('config', 'G-06TZHDDEQN');
+    </script><!-- Google Tag Manager -->
 </head>
+
 <body>
-  <main>
-    <!-- Navbar Placeholder -->
-    <div class="mt--navbar">
-      <h1 id="voyantis-text">Queue Manager</h1>
-    </div>
+<main class="container">
+  <div class="pink-bar"> Welcome to Voyantis Available Queues :) </div>
 
-    <!-- Queue Display Section -->
-    <section class="queue-container" id="queues-section">
-      <h2 class="section-title">Available Queues</h2>
-      <div id="queues-list" class="queue-container"></div>
-    </section>
-
-    <!-- Queue Actions Section -->
-    <section class="queue-actions">
-      <h2 class="section-title">Fetch Messages</h2>
-      <div class="action-controls">
-        <select id="queue-selector" class="w-select">
-          <option value="" disabled selected>Select a queue</option>
-        </select>
-        <button id="fetch-button" class="btn is--arrow">Go</button>
-      </div>
-      <div id="response-section" class="response-container">
-        <h3>Response:</h3>
-        <pre id="response-output" class="response-output"></pre>
+    <section class="queues-section">     
+      <h2>Available Queues</h2>     
+      <div class="form-group">
+        <ul id="queues-list" class="queues-list"></ul>
       </div>
     </section>
 
-    <!-- Footer Placeholder -->
-    <footer class="vy-footer-sm-link">
-      <p>Powered by Voyantis</p>
-    </footer>
-  </main>
+    <section class="fetch-section">
+      <h2>Fetch Messages</h2>
+      <div class="form-group">
+          <label for="queue-selector">Select a Queue:</label>
+          <div class="input-group">
+              <select id="queue-selector" class="queue-selector"></select>
+              <button id="fetch-button" class="btn">Go</button>
+          </div>
+      </div>
+       <pre id="response-output" class="response-output"></pre>
+    </section>
+</main>
 
-  <script src="script.js"></script>
+<footer class="footer">
+  <div class="_1744-container w-container">
+    <div class="navbar-inner-container-v2">
+      <a href="/" aria-current="page" class=
+      "nav-logos w-nav-brand w--current">
+      <div aria-label="Fireberry's logo" class=
+      "voyantis-logo nav w-embed">
+        <svg width="100%" height="100%" viewbox=
+        "0 0 130 40" fill="none" xmlns=
+        "http://www.w3.org/2000/svg">
+        <path d=
+        "M50.8807 30.9958L46.3888 18.5999C46.3659 18.5343 46.4116 18.4688 46.4803 18.4688H48.7818C48.8243 18.4688 48.8603 18.495 48.8734 18.5343L52.3126 28.7211L55.7256 18.5343C55.7387 18.495 55.7779 18.4688 55.8172 18.4688H58.0664C58.135 18.4688 58.1808 18.5376 58.1579 18.5999L53.6431 30.9958C53.6301 31.0351 53.5908 31.0613 53.5516 31.0613H50.9722C50.9297 31.0581 50.8937 31.0318 50.8807 30.9958Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M58.6406 25.7396V23.8386C58.6406 20.112 60.795 18.2109 64.1002 18.2109C67.4577 18.2109 69.6382 20.112 69.6382 23.8386V25.7396C69.6382 29.4138 67.4577 31.3148 64.1002 31.3148C60.7918 31.3181 58.6406 29.4171 58.6406 25.7396ZM60.9977 23.8648V25.6905C60.9977 27.8996 61.9719 29.3155 64.1002 29.3155C66.2808 29.3155 67.2517 27.9028 67.2517 25.6905V23.8648C67.2517 21.6787 66.2775 20.2398 64.1002 20.2398C61.9719 20.2431 60.9977 21.6819 60.9977 23.8648Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M70.3057 36.2301V34.398C70.3057 34.3422 70.3482 34.2996 70.4038 34.2996H71.074C72.5615 34.2996 73.3559 33.9129 74.4053 31.4481L74.9937 30.0092L70.1324 18.6064C70.1063 18.5409 70.152 18.4688 70.224 18.4688H72.5222C72.5615 18.4688 72.5974 18.4917 72.6138 18.531L76.151 27.2331L79.7668 18.531C79.7831 18.495 79.8191 18.472 79.8583 18.472H82.0291C82.0977 18.472 82.1468 18.5441 82.1206 18.6097L76.3603 32.2216C75.0003 35.4599 73.7972 36.3317 71.1295 36.3317H70.407C70.3515 36.3285 70.3057 36.2826 70.3057 36.2301Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M89.7542 29.4355C89.0611 30.6941 87.9071 31.3103 85.9619 31.3103C83.3727 31.3103 81.9375 30.0517 81.9375 27.9442V27.1739C81.9375 25.3254 83.1406 23.7324 86.4229 23.7324H89.7542V23.0376C89.7542 21.0317 89.0382 20.2352 87.165 20.2352C85.514 20.2352 84.7915 20.9956 84.615 22.1297C84.6084 22.1789 84.5692 22.2116 84.5202 22.2116H82.4377C82.3788 22.2116 82.3298 22.1559 82.3396 22.0969C82.6862 19.7108 84.2227 18.1212 87.6259 18.2064C90.0909 18.2687 92.0622 20.2811 92.0622 22.7524V30.9563C92.0622 31.012 92.0197 31.0546 91.9642 31.0546H89.8522C89.7967 31.0546 89.7542 31.012 89.7542 30.9563V29.4355ZM89.7542 26.4824V25.5319H86.6778C84.8569 25.5319 84.2423 26.1743 84.2423 27.2526V27.7672C84.2423 29.0258 85.0106 29.6682 86.6778 29.6682C88.6263 29.6682 89.7542 28.7439 89.7542 26.4824Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M96.7334 31.0592H94.6215C94.5659 31.0592 94.5234 31.0166 94.5234 30.9609V18.5682C94.5234 18.5125 94.5659 18.4699 94.6215 18.4699H96.7334C96.789 18.4699 96.8315 18.5125 96.8315 18.5682V20.8068C97.6521 19.0336 99.0872 18.2109 100.856 18.2109C103.546 18.2109 105.034 19.676 105.034 22.7078V30.9609C105.034 31.0166 104.991 31.0592 104.936 31.0592H102.824C102.768 31.0592 102.726 31.0166 102.726 30.9609V23.2486C102.726 21.2427 101.931 20.2431 100.009 20.2431C98.2667 20.2431 96.8315 21.5541 96.8315 23.9697V30.9641C96.8315 31.0166 96.7857 31.0592 96.7334 31.0592Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M113.982 31.1865H112.131C109.866 31.1865 108.032 29.3445 108.032 27.0763V20.4162H106.207C106.152 20.4162 106.109 20.3736 106.109 20.3179V18.5611C106.109 18.5054 106.152 18.4628 106.207 18.4628H108.032V14.864C108.032 14.8082 108.074 14.7656 108.13 14.7656H110.265C110.32 14.7656 110.363 14.8082 110.363 14.864V18.4661H113.982C114.037 18.4661 114.08 18.5087 114.08 18.5644V20.3179C114.08 20.3736 114.037 20.4162 113.982 20.4162H110.363V27.1484C110.363 28.5087 110.925 29.256 112.566 29.256H113.982C114.037 29.256 114.08 29.2986 114.08 29.3543V31.0849C114.08 31.1406 114.037 31.1865 113.982 31.1865Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M115.539 18.4688H117.847V31.0613H115.539V18.4688Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M122.327 21.7835C122.327 22.9143 122.889 23.2748 124.351 23.6321L125.992 23.9664C128.941 24.6088 129.99 25.4315 129.99 27.5652C129.99 30.0333 128.323 31.3181 125.018 31.3181C121.778 31.3181 119.99 30.0398 119.672 27.1654C119.666 27.1064 119.712 27.0539 119.771 27.0539H121.755C121.804 27.0539 121.843 27.09 121.85 27.1392C122.075 28.8239 123.027 29.5449 125.07 29.5449C126.94 29.5449 127.685 28.9025 127.685 27.6931C127.685 26.5099 127.198 26.1755 125.354 25.7658L123.56 25.4053C121.176 24.9432 119.996 24.0189 119.996 21.8589C119.996 19.676 121.457 18.2109 124.635 18.2109C127.996 18.2109 129.539 19.6367 129.706 22.1637C129.709 22.2195 129.663 22.2719 129.608 22.2719H127.545C127.496 22.2719 127.453 22.2326 127.45 22.1834C127.296 20.7019 126.472 20.0103 124.665 20.0103C122.968 20.0103 122.327 20.6265 122.327 21.7835Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M116.691 17.1717C117.522 17.1717 118.195 16.4966 118.195 15.664C118.195 14.8313 117.522 14.1562 116.691 14.1562C115.861 14.1562 115.188 14.8313 115.188 15.664C115.188 16.4966 115.861 17.1717 116.691 17.1717Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M36.7184 6.23402C38.4355 6.23402 39.8274 4.83849 39.8274 3.11701C39.8274 1.39553 38.4355 0 36.7184 0C35.0013 0 33.6094 1.39553 33.6094 3.11701C33.6094 4.83849 35.0013 6.23402 36.7184 6.23402Z"
+        fill="CurrentColor"></path>
+        <path d=
+        "M37.9122 10.7634C36.7157 8.52155 32.9528 8.94764 32.3807 11.4878C31.7203 14.477 30.8245 17.4104 29.664 20.239C28.438 23.0742 26.9407 25.7979 25.0806 28.2659C19.1437 36.1486 10.7222 36.4927 11.5526 24.7916C14.9427 23.7756 17.872 21.5533 19.7321 18.4953C21.4092 15.7356 22.6352 11.5435 19.8008 9.07874C17.9766 7.41699 15.1422 7.45305 13.1545 8.82309C9.56817 11.4222 7.79299 15.67 6.433 19.8097C5.30185 20.0129 4.15763 20.1341 3.01341 20.2325C2.19937 20.3013 1.47034 20.5242 0.875345 21.1207C-0.281954 22.2384 -0.301569 24.2967 0.875345 25.4111C2.07841 26.709 3.86994 26.2108 5.41627 26.0568C5.05339 38.6133 16.2635 44.4442 25.9338 36.0961C31.7399 31.1273 35.1628 23.8804 37.3107 16.6533C37.3858 16.4009 37.4447 16.1453 37.5068 15.8896C37.9253 14.2115 38.8014 12.3891 37.9122 10.7634Z"
+        fill="url(#paint0_linear_129_993)"></path>
+        <path d=
+        "M11.554 24.7969C9.08246 25.5999 6.65998 25.9211 5.41441 26.0653C5.33268 28.9529 5.86883 31.493 6.85286 33.5776C8.57246 33.3252 11.4167 32.8106 12.8519 32.0011C11.8417 30.5196 11.3153 28.1597 11.554 24.7969Z"
+        fill="url(#paint1_linear_129_993)"></path>
+        <path d=
+        "M12.2227 9.57207C9.24774 12.1942 7.66545 16.0421 6.42969 19.8048C6.42969 19.8048 9.91466 19.1853 12.2783 17.7694C13.3768 17.0844 14.3804 16.1797 15.0179 14.9965C16.7963 11.6894 14.7923 9.39508 12.2227 9.57207Z"
+        fill="url(#paint2_linear_129_993)"></path>
+        <defs>
+          <lineargradient id="paint0_linear_129_993" x1=
+          "-13.9176" y1="36.8205" x2="39.7753" y2="14.5842"
+          gradientunits="userSpaceOnUse">
+            <stop stop-color="#FF009B"></stop>
+            <stop offset="0.08" stop-color=
+            "#FF0093"></stop>
+            <stop offset="0.4612" stop-color=
+            "#FF0071"></stop>
+            <stop offset="0.7769" stop-color=
+            "#FF005D"></stop>
+          <stop offset="0.9861" stop-color=
+          "#FF0055"></stop>
+        </lineargradient>
+        <lineargradient id="paint1_linear_129_993" x1=
+        "9.11855" y1="33.3383" x2="9.15834" y2="18.8423"
+        gradientunits="userSpaceOnUse">
+          <stop stop-color="#50004B" stop-opacity=
+          "0"></stop>
+          <stop offset="0.9861" stop-color="#50004B"
+          stop-opacity="0.4"></stop>
+        </lineargradient>
+        <lineargradient id="paint2_linear_129_993" x1=
+        "9.69925" y1="20.0914" x2="13.8294" y2="9.2872"
+        gradientunits="userSpaceOnUse">
+          <stop offset="0.0139" stop-color="#50004B"
+          stop-opacity="0.4"></stop>
+          <stop offset="1" stop-color="#50004B"
+          stop-opacity="0"></stop>
+        </lineargradient>
+      </defs></svg>
+    </div></a>
+    © 2025 Queue Viewer
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

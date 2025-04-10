@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         console.log('Fetching queues...');
         const response = await fetch('http://127.0.0.1:5000/api/queues');
-        if (!response.ok) throw new Error(`Error: ${response.status}`);
+        if (!response.ok) throw new Error(`Error: ${response.status} ${response.statusText}`);
         const queues = await response.json();
         console.log('Queues fetched:', queues);
     
         // Populate the queues list
         queuesList.innerHTML = '';
-        queueSelector.innerHTML = '<option value="" disabled selected>Select a queue</option>';
+        queueSelector.innerHTML = '<option value="" disabled selected>Queue dropdown</option>';
         
         for (const [queueName, messageCount] of Object.entries(queues)) {
           const listItem = document.createElement('li');

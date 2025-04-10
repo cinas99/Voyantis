@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.header {
+  font-family: Poppins, sans-serif;
+  background-color: #ff007a; 
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+}
+
+/* Main Container */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+/* Sections */
+.queues-section,
+.fetch-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  color: #ff007a; /* Voyantis pink */
+}
+
+/* Queues List */
+.queues-list {
+  display: inline-block;
+}
+
+.queues-list li {
+  padding: .5rem;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: .5rem;
+}
+
+.queue-selector {
+  width: 200px; /* Adjust width as needed */
+  height: 30px; /* Adjust height as needed */
+  font-size: 14px; /* Adjust font size for better readability */
+}
+
+/* Button Styling */
+.btn {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    background-color: #003246;
+    border-radius: 50px;
+    padding: .75rem 2rem; 
+    font-family: Poppins, sans-serif; 
+    font-size: 1rem;
+    font-weight: bold; 
+    line-height: normal;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.btn:hover {
+    background-color: #e6006b;
+}
+
+.response-output {
+    font-family: Poppins, sans-serif;
+    margin-top: .75rem;
+    padding: .75rem;
+    background-color: #f3f3f3; 
+    border-radius: .25rem;
+}
+
+.footer {
+  position: fixed; 
+  bottom: 0; 
+  width: 100%;
+  height: 10%;
+  background-color: #f8f9fa; 
+  text-align: center; 
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+body {
+  margin-bottom: 50px;
+}
+
+/* Align dropdown and button in one row */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add spacing between the dropdown and button */
+}
+
+.queue-selector {
+    width: 200px; /* Adjust width as needed */
+    height: 30px; /* Match height with the button */
+}
+
+.btn {
+  display: flex; /* Use flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  height: 34px; /* Match height with the dropdown */
+  padding: 0 15px; /* Add padding for better appearance */
+  background-color: #002855; /* Example background color (dark blue) */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Optional rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Optional: Add hover effect for the button */
+.btn:hover {
+  background-color: #004080; /* Slightly lighter blue on hover */
+}
+
+/* Optional: Center the form group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.pink-bar {
+  background-color: #ff007a; 
+  color: white; /* Text color */
+  text-align: center; /* Horizontally center the text */
+  font-size: 20px; /* Adjust font size */
+  padding: 10px 0; /* Add padding for better spacing */
+  display: flex; /* Use flexbox for vertical alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
