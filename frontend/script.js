@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         for (const [queueName, messageCount] of Object.entries(queues)) {
           const listItem = document.createElement('li');
-          listItem.textContent = `${queueName}: ${messageCount} messages`;
+          listItem.textContent = `${queueName}: ${messageCount} message(s)`;
           queuesList.appendChild(listItem);
     
           const option = document.createElement('option');
@@ -57,10 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    // Event listeners
     fetchButton.addEventListener('click', fetchMessages);
   
-    // Initial load of queues
     loadQueues();
   });
   

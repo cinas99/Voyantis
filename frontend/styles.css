@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Poppins, sans-serif;
 }
 
 body {
@@ -22,14 +23,12 @@ body {
   font-size: 1.5rem;
 }
 
-/* Main Container */
 .container {
   max-width: 800px;
   margin: 2rem auto;
   padding: 1rem;
 }
 
-/* Sections */
 .queues-section,
 .fetch-section {
   background-color: white;
@@ -40,30 +39,27 @@ body {
 
 h2 {
   font-size: 1.25rem;
-  color: #ff007a; /* Voyantis pink */
+  color: #ff007a; 
 }
 
-/* Queues List */
 .queues-list {
   display: inline-block;
 }
 
 .queues-list li {
-  padding: .5rem;
+  padding: .1rem;
 }
 
-/* Form Group */
 .form-group {
   margin-bottom: .5rem;
 }
 
 .queue-selector {
-  width: 200px; /* Adjust width as needed */
-  height: 30px; /* Adjust height as needed */
-  font-size: 14px; /* Adjust font size for better readability */
+  width: 200px; 
+  height: 30px; 
+  font-size: 14px; 
 }
 
-/* Button Styling */
 .btn {
     display: inline-block;
     color: #fff;
@@ -104,41 +100,34 @@ h2 {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
 }
 
-body {
-  margin-bottom: 50px;
-}
-
-/* Align dropdown and button in one row */
 .input-group {
     display: flex;
     align-items: center;
-    gap: 10px; /* Add spacing between the dropdown and button */
+    gap: 10px; 
 }
 
 .queue-selector {
-    width: 200px; /* Adjust width as needed */
-    height: 30px; /* Match height with the button */
+    width: 200px; 
+    height: 30px; 
 }
 
 .btn {
-  display: flex; /* Use flexbox for centering */
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  height: 34px; /* Match height with the dropdown */
-  padding: 0 15px; /* Add padding for better appearance */
-  background-color: #002855; /* Example background color (dark blue) */
-  color: white; /* Text color */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Optional rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    height: 34px; 
+    padding: 0 15px; 
+    background-color: #002855; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
 }
 
-/* Optional: Add hover effect for the button */
 .btn:hover {
-  background-color: #004080; /* Slightly lighter blue on hover */
+    background-color: #004080; 
 }
 
-/* Optional: Center the form group */
 .form-group {
     display: flex;
     flex-direction: column;
@@ -147,12 +136,12 @@ body {
 }
 
 .pink-bar {
-  background-color: #ff007a; 
-  color: white; /* Text color */
-  text-align: center; /* Horizontally center the text */
-  font-size: 20px; /* Adjust font size */
-  padding: 10px 0; /* Add padding for better spacing */
-  display: flex; /* Use flexbox for vertical alignment */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+   background-color: #ff007a; 
+   color: white; 
+   text-align: center; 
+   font-size: 20px; 
+   padding: 10px 0; 
+   display:flex;  
+   justify-content:center;  
+   align-items:center;  
 }
