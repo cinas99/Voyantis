@@ -1,6 +1,6 @@
 import unittest
 from flask import json
-from app import app  # Assuming your code is saved in a file named 'app.py'
+from app import app 
 
 class QueueAPITestCase(unittest.TestCase):
     def setUp(self):
